@@ -13,14 +13,10 @@ const { text } = require('body-parser');
 const db = new sqlite3.Database('webapp.db');
 
 
-
 app.use((req, res, next) => {
   console.log(req.method, req.url, req.body);
   next();
 });
-
-
-
 
 function updateRemainingQuestions() {
   const xhr = new XMLHttpRequest();
@@ -39,19 +35,11 @@ function updateRemainingQuestions() {
   xhr.send();
 }
 
-
 app.post('/deduct-remaining-questions', (req, res) => {
   console.log("Received data:", req.body);
   res.send('text')
   // deduct remaining questions logic here
 });
-
-
-
-
-
-
-
 
 require("dotenv").config();
 
@@ -304,6 +292,43 @@ app.post('/get-prompt-result', async (req, res) => {
   }
 
   // -- 1⃣️这里获取调用open api获取回答....（自己补充代码）
+  if (!prompt) {
+    // Send a 400 status code and a message indicating that the prompt is missing
+    return res.status(400).send({error: 'Prompt is missing in the request'});
+}
+
+try {
+    // Use the OpenAI SDK to create a completion
+    // with the given prompt, model and maximum tokens
+    if (model === 'image') {
+        const result = await openai.createImage({
+            prompt,
+            response_format: 'url',
+            size: '512x512'
+        });
+    return res.send(result.data.data[0].url);
+    }
+    else if (model === 'chatgpt') {
+        const result = await openai.createChatCompletion({
+            model:"gpt-3.5-turbo",
+            messages: [
+
+              temperature=0.9,  # 值在[0,1]之间，越大表示回复越具有不确定性
+                top_p=1,
+                frequency_penalty=0.0,  # [-2,2]之间，该值越大则更倾向于产生不同的内容
+                presence_penalty=0.0,  # [-2,2]之间，该值越大则更倾向于产生不同的内容
+                { role: "user", content: prompt }
+            ]
+        })
+        responseText = result.data.choices[0]?.message?.content;
+    }else {
+        const completion = await openai.createCompletion({
+            model: model === 'gpt' ? "text-davinci-003" : 'code-davinci-002', // model name
+            prompt: `Please reply below question in markdown format.\n ${prompt}`, // input prompt
+            max_tokens: model === 'gpt' ? 4000 : 8000 // Use max 8000 tokens for codex model
+    });
+
+
 
   // -- 2⃣️这里更新计数
     const query = 'UPDATE users SET count = count - 1 WHERE username = ?'; //+1or-1
@@ -319,27 +344,27 @@ app.post('/get-prompt-result', async (req, res) => {
     });
 
     // 上面两个都成功了返回答案，这里为了测试写死了
-    res.send('回答了！');
-  return;
+    //res.send('回答了！');
+  //return;
 
-    // Check if prompt is present in the request
-    if (!prompt) {
+/*      // Check if prompt is present in the request
+    // if (!prompt) {
         // Send a 400 status code and a message indicating that the prompt is missing
-        return res.status(400).send({error: 'Prompt is missing in the request'});
-    }
+        // return res.status(400).send({error: 'Prompt is missing in the request'});
+    // }
 
-    try {
+    // try {
         // Use the OpenAI SDK to create a completion
         // with the given prompt, model and maximum tokens
-        if (model === 'image') {
-            const result = await openai.createImage({
-                prompt,
-                response_format: 'url',
-                size: '512x512'
-            });
-        return res.send(result.data.data[0].url);
-        }
-        else if (model === 'chatgpt') {
+        // if (model === 'image') {
+            // const result = await openai.createImage({
+                // prompt,
+                // response_format: 'url',
+                // size: '512x512'
+            // });
+        // return res.send(result.data.data[0].url);
+        // }
+        // else if (model === 'chatgpt') {
             const result = await openai.createChatCompletion({
                 model:"gpt-3.5-turbo",
                 messages: [
@@ -352,7 +377,7 @@ app.post('/get-prompt-result', async (req, res) => {
                 model: model === 'gpt' ? "text-davinci-003" : 'code-davinci-002', // model name
                 prompt: `Please reply below question in markdown format.\n ${prompt}`, // input prompt
                 max_tokens: model === 'gpt' ? 4000 : 8000 // Use max 8000 tokens for codex model
-        });
+        });*/
         // Send the generated text as the response
             responseText = completion.data.choices[0].text;
     }
@@ -368,7 +393,7 @@ app.post('/get-prompt-result', async (req, res) => {
 });
 
 
-const port = process.env.PORT || 3001; //port Number
+const port = process.env.PORT || 80; //port Number
 app.listen(port, () => console.log(`Listening on port ${port}`));
 
 
@@ -384,7 +409,7 @@ function detectAccountAvailCount(sUsername){
       }
 
       if((row.count||0) <= 0){
-        reject(new Error('当前无计数额度'));
+        reject(new Error('当前无提问额度，请充值！'));
       }
       resolve(row.count);
     });
