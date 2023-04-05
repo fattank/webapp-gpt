@@ -289,16 +289,16 @@ app.post('/get-prompt-result', async (req, res) => {
     // -- OpenAI获取数据
     let responseText = "";
     if (model === 'image') {
-      const ret_image = await openai.createImage({
+      const ret_createImage = await openai.createImage({
         prompt,
         response_format: 'url',
         size: '512x512'
       });
-      console.log(">>>>Return from Image:",ret_image);
-      responseText = ret_image.data.data[0].url;
+      console.log(">>>>Return from createImage:",ret_createImage);
+      responseText = ret_createImage.data.data[0].url;
     }
     else if (model === 'chatgpt') {
-      const ret_chatgpt = await openai.createChatCompletion({
+      const ret_createChatCompletion = await openai.createChatCompletion({
         model:"gpt-3.5-turbo",
         top_p:1,
         temperature:0.9,  //# 值在[0,1]之间，越大表示回复越具有不确定性
@@ -308,17 +308,18 @@ app.post('/get-prompt-result', async (req, res) => {
           {role:"user",content:prompt}
         ]
       });
-      console.log(">>>>Return from chatgpt:",ret_chatgpt);
-      responseText = ret_chatgpt.data.choices[0]?.message?.content;
+      console.log(">>>>Return from createChatCompletion:",ret_createChatCompletion);
+      responseText = ret_createChatCompletion.data.choices[0]?.message?.content;
     }
     else {
-      const ret_others = await openai.createCompletion({
+      const ret_createCompletion = await openai.createCompletion({
         model: model === 'gpt' ? "text-davinci-003" : 'code-davinci-002', // model name
         prompt: `Please reply below question in markdown format.\n ${prompt}`, // input prompt
         max_tokens: model === 'gpt' ? 4000 : 8000 // Use max 8000 tokens for codex model
       });
-      console.log(">>>>Return from others:",ret_others);
-      responseText = JSON.stringify(ret_others.data);// 不知道返回内容格式，你自己解析下
+      console.log(">>>>Return from createCompletion:",ret_createCompletion);
+      // responseText = JSON.stringify(ret_createCompletion.data);// 不知道返回内容格式，你自己解析下
+      responseText = ret_createCompletion.data.choices[0].text;
     }
 
     // 更新计数
