@@ -1,0 +1,35 @@
+{
+  "name": "chatgpt-server",
+  "version": "1.0.0",
+  "description": "ChatGpt Server",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "chatgpt"
+  ],
+  "author": "Super",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "fs": "0.0.1-security",
+    "multer": "^1.4.5-lts.1",
+    "openai": "^3.2.1",
+    "path": "^0.12.7",
+    "sqlite3": "^5.1.6",
+    "uuid": "^9.0.0",
+    "winston": "^3.8.2"
+  
+
+    }
+    
+
+
+  }
+

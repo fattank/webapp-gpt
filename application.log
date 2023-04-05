@@ -1,0 +1,276 @@
+2023-04-01T13:56:10.347Z warn: Failed login attempt for user undefined.
+2023-04-01T14:01:43.035Z warn: Failed login attempt for user undefined.
+2023-04-01T14:05:30.629Z warn: Failed login attempt for user undefined.
+2023-04-01T14:07:16.751Z warn: Failed login attempt for user undefined.
+2023-04-01T14:10:05.448Z warn: Failed login attempt for user undefined.
+2023-04-01T14:14:49.536Z info: User abcd logged in successfully.
+2023-04-01T14:14:49.542Z warn: Failed login attempt for user undefined.
+2023-04-01T14:17:31.724Z info: User abcd logged in successfully.
+2023-04-01T14:17:31.735Z warn: Failed login attempt for user undefined.
+2023-04-01T14:17:56.534Z info: User input: Hi , nice to meet you.
+2023-04-01T14:17:56.535Z info: Model: chatgpt
+2023-04-02T08:14:23.650Z info: User abcd logged in successfully.
+2023-04-02T08:14:23.657Z warn: Failed login attempt for user undefined.
+2023-04-02T10:28:59.024Z info: User input: 123456789
+2023-04-02T10:28:59.026Z info: Model: chatgpt
+2023-04-02T10:32:12.573Z info: User input: 123456
+2023-04-02T10:32:12.574Z info: Model: chatgpt
+2023-04-02T12:32:04.118Z info: User input: 111222333
+2023-04-02T12:32:04.120Z info: Model: chatgpt
+2023-04-02T12:33:42.086Z info: User input: 99999
+2023-04-02T12:33:42.087Z info: Model: chatgpt
+2023-04-02T13:15:04.207Z warn: Login failed for username: abcd
+2023-04-02T13:15:04.210Z warn: Login failed for username: undefined
+2023-04-02T14:04:03.481Z warn: Login failed for username: undefined
+2023-04-02T14:05:27.235Z warn: Login failed for username: undefined
+2023-04-02T14:24:50.410Z warn: Login failed for username: undefined
+2023-04-02T14:32:09.885Z warn: Login failed for username: undefined
+2023-04-02T14:34:04.721Z warn: Login failed for username: undefined
+2023-04-02T14:37:13.834Z warn: Login failed for username: undefined
+2023-04-02T14:37:39.013Z warn: Login failed for username: undefined
+2023-04-02T14:54:30.844Z warn: Login failed for username: undefined
+2023-04-02T15:04:43.932Z warn: Login failed for username: abcd
+2023-04-02T15:14:20.663Z warn: Login failed for username: abcd
+2023-04-02T15:21:13.516Z warn: Login failed for username: abcd
+2023-04-02T15:31:30.889Z warn: Login failed for username: abcd
+2023-04-03T03:47:28.156Z info: User input: 1234567
+2023-04-03T03:47:28.158Z info: Model: chatgpt
+2023-04-03T04:32:11.826Z info: Remaining questions for user 'abcd': 9
+2023-04-03T04:33:01.680Z info: Remaining questions for user 'tank': 999
+2023-04-03T04:34:23.261Z info: User input: 0000
+2023-04-03T04:34:23.261Z info: Model: chatgpt
+2023-04-03T06:28:25.569Z info: Remaining questions for user 'abcd': 9
+2023-04-03T06:28:29.618Z info: User input: 23452342
+2023-04-03T06:28:29.619Z info: Model: chatgpt
+2023-04-03T06:29:33.128Z info: Remaining questions for user 'abcd': 9
+2023-04-03T06:29:37.609Z info: User input: 23454678
+2023-04-03T06:29:37.610Z info: Model: chatgpt
+2023-04-03T06:30:01.662Z info: Remaining questions for user 'abcd': 9
+2023-04-03T06:30:02.903Z info: Remaining questions for user 'abcd': 9
+2023-04-03T06:30:03.555Z info: Remaining questions for user 'abcd': 9
+2023-04-03T06:35:56.811Z warn: Login failed for username: abcd
+2023-04-03T06:36:03.841Z info: Remaining questions for user 'abcd': 9
+2023-04-03T06:36:08.365Z info: User input: 234567890-=
+2023-04-03T06:36:08.366Z info: Model: chatgpt
+2023-04-03T06:37:11.944Z info: User input: fdgdfg 
+2023-04-03T06:37:11.945Z info: Model: chatgpt
+2023-04-03T06:37:34.981Z info: User input: wrqw4e5r6t7y
+2023-04-03T06:37:34.982Z info: Model: image
+2023-04-03T06:38:52.343Z info: Remaining questions for user 'abcd': 9
+2023-04-03T06:38:52.925Z info: Remaining questions for user 'abcd': 9
+2023-04-03T06:38:53.314Z info: Remaining questions for user 'abcd': 9
+2023-04-03T06:38:53.519Z info: Remaining questions for user 'abcd': 9
+2023-04-03T06:38:53.699Z info: Remaining questions for user 'abcd': 9
+2023-04-03T07:17:44.916Z info: Remaining questions for user 'abcd': 9
+2023-04-03T07:17:47.643Z info: User input: 23435465
+2023-04-03T07:17:47.643Z info: Model: chatgpt
+2023-04-03T07:18:11.907Z info: Remaining questions for user 'abcd': 9
+2023-04-03T07:18:13.339Z info: Remaining questions for user 'abcd': 9
+2023-04-03T07:18:13.537Z info: Remaining questions for user 'abcd': 9
+2023-04-03T07:18:13.725Z info: Remaining questions for user 'abcd': 9
+2023-04-03T07:35:23.771Z info: Remaining questions for user 'abcd': 9 
+2023-04-03T07:35:28.619Z info: User input: 132435657687980 IP: ::ffff:127.0.0.1
+2023-04-03T07:35:28.620Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-03T07:36:01.532Z info: User input: 00000000 IP: ::ffff:127.0.0.1
+2023-04-03T07:36:01.532Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-03T07:36:22.961Z info: Remaining questions for user 'abcd': 9 
+2023-04-03T07:36:25.511Z info: Remaining questions for user 'abcd': 9 
+2023-04-03T07:36:25.699Z info: Remaining questions for user 'abcd': 9 
+2023-04-03T07:49:18.137Z info: User input: 6e456789 IP: ::ffff:127.0.0.1
+2023-04-03T07:49:18.139Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-03T07:58:32.328Z warn: Login failed for username: abcd 
+2023-04-03T07:58:39.318Z info: Remaining questions for user 'abcd': 9 
+2023-04-03T08:41:55.515Z info: Remaining questions for user 'abcd': 9 
+2023-04-03T08:41:58.494Z info: User input: 234567 IP: ::ffff:127.0.0.1
+2023-04-03T08:41:58.494Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-03T08:43:10.446Z info: User input: 000999 IP: ::ffff:127.0.0.1
+2023-04-03T08:43:10.446Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-03T09:41:35.649Z info: Remaining questions for user 'abcd': 9 
+2023-04-03T09:41:40.635Z info: User input: 4456789 IP: ::ffff:127.0.0.1
+2023-04-03T09:41:40.636Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-03T11:32:13.961Z info: Remaining questions for user 'abcd': 9 
+2023-04-03T11:32:23.470Z info: User input: 你知道我在测试吗？ IP: ::ffff:127.0.0.1
+2023-04-03T11:32:23.470Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-03T14:02:54.594Z warn: Login failed for username: abcd 
+2023-04-03T14:03:03.530Z info: Remaining questions for user 'abcd': 9 
+2023-04-03T14:03:35.078Z info: Remaining questions for user 'abcd': 9 
+2023-04-03T14:03:35.244Z info: Remaining questions for user 'abcd': 9 
+2023-04-03T14:20:40.575Z info: Remaining questions for user 'abcd': 9 
+2023-04-03T14:21:09.678Z info: Remaining questions for user 'abcd': 9 
+2023-04-03T14:21:10.406Z info: Remaining questions for user 'abcd': 9 
+2023-04-03T14:21:10.664Z info: Remaining questions for user 'abcd': 9 
+2023-04-03T14:22:21.172Z info: Remaining questions for user 'abcd': 9 
+2023-04-03T14:22:26.741Z info: User input: 3456654345432 IP: ::ffff:127.0.0.1
+2023-04-03T14:22:26.742Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-03T14:27:44.557Z info: Remaining questions for user 'abcd': 9 
+2023-04-03T14:28:18.264Z info: Remaining questions for user 'abcd': 9 
+2023-04-03T14:54:14.541Z info: Remaining questions for user 'abcd': 9 
+2023-04-03T14:54:50.406Z info: User input: 333333 IP: ::ffff:127.0.0.1
+2023-04-03T14:54:50.407Z info: Model: gpt IP: ::ffff:127.0.0.1
+2023-04-03T14:55:14.521Z info: User input: 33333322222 IP: ::ffff:127.0.0.1
+2023-04-03T14:55:14.521Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-03T14:56:05.844Z info: Remaining questions for user 'tank': 999 
+2023-04-04T06:09:30.540Z info: Remaining questions for user 'abcd': 9 
+2023-04-04T06:09:35.761Z info: User input: 22342342 IP: ::ffff:127.0.0.1
+2023-04-04T06:09:35.762Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-04T06:10:03.460Z info: User input: 1234567 IP: ::ffff:127.0.0.1
+2023-04-04T06:10:03.461Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-04T06:18:37.591Z info: Remaining questions for user 'abcd': 12 
+2023-04-04T06:18:43.605Z info: User input: 34 IP: ::ffff:127.0.0.1
+2023-04-04T06:18:43.606Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-04T06:19:07.772Z info: User input: wer5ty7 IP: ::ffff:127.0.0.1
+2023-04-04T06:19:07.772Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-04T06:20:24.284Z info: Remaining questions for user 'abcd': 14 
+2023-04-04T06:20:27.775Z info: User input: 23456789 IP: ::ffff:127.0.0.1
+2023-04-04T06:20:27.777Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-04T06:20:50.901Z info: User input: ew454r6 IP: ::ffff:127.0.0.1
+2023-04-04T06:20:50.902Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-04T06:21:12.803Z info: User input: q4w5er6ty IP: ::ffff:127.0.0.1
+2023-04-04T06:21:12.803Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-04T06:22:30.925Z info: User input: 4678bnm IP: ::ffff:127.0.0.1
+2023-04-04T06:22:30.925Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-04T06:23:25.717Z info: User input: ygyuuuyvfyutcytu IP: ::ffff:127.0.0.1
+2023-04-04T06:23:25.718Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-04T06:23:56.086Z info: User input: 3456dftyucvbn IP: ::ffff:127.0.0.1
+2023-04-04T06:23:56.087Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-04T06:24:23.296Z info: User input: 77hhbbghjbbb IP: ::ffff:127.0.0.1
+2023-04-04T06:24:23.297Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-04T06:24:56.738Z info: User input: uyifytictyd655....。-怕 IP: ::ffff:127.0.0.1
+2023-04-04T06:24:56.739Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-04T06:25:28.789Z info: User input: (⊙﹏⊙)个股版 IP: ::ffff:127.0.0.1
+2023-04-04T06:25:28.799Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-04T06:26:19.600Z info: User input: 45TV让人TV IP: ::ffff:127.0.0.1
+2023-04-04T06:26:19.601Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-04T06:26:55.588Z info: User input: 共享软体费用估计 IP: ::ffff:127.0.0.1
+2023-04-04T06:26:55.589Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-04T06:27:34.998Z info: User input: 345678从v归还借款 IP: ::ffff:127.0.0.1
+2023-04-04T06:27:34.999Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-04T06:28:10.290Z info: User input: u美女人体被  IP: ::ffff:127.0.0.1
+2023-04-04T06:28:10.291Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-04T06:29:43.698Z info: User input: 和你人头比日444455 IP: ::ffff:127.0.0.1
+2023-04-04T06:29:43.698Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-04T06:30:07.029Z info: User input: 67564534工行房贷 IP: ::ffff:127.0.0.1
+2023-04-04T06:30:07.029Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-04T06:30:44.580Z info: User input: 34567斯蒂芬干哈 IP: ::ffff:127.0.0.1
+2023-04-04T06:30:44.580Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-04T06:31:06.960Z info: User input: 34567风格和 IP: ::ffff:127.0.0.1
+2023-04-04T06:31:06.960Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-04T06:45:22.758Z info: Remaining questions for user 'abcd': -2 
+2023-04-04T06:45:26.498Z info: User input: 为 IP: ::ffff:127.0.0.1
+2023-04-04T06:45:26.498Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-04T06:45:49.267Z info: User input: 威威 IP: ::ffff:127.0.0.1
+2023-04-04T06:45:49.268Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-04T06:46:41.474Z info: Remaining questions for user 'abcd': 2 
+2023-04-04T06:46:45.928Z info: User input: 23456与会各方的 IP: ::ffff:127.0.0.1
+2023-04-04T06:46:45.929Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-04T06:47:13.427Z info: User input: 人推法国红酒看 IP: ::ffff:127.0.0.1
+2023-04-04T06:47:13.428Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-04T06:47:41.217Z info: User input: 34567乳房退 IP: ::ffff:127.0.0.1
+2023-04-04T06:47:41.217Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-04T06:48:11.828Z info: User input: 34567法国海军 IP: ::ffff:127.0.0.1
+2023-04-04T06:48:11.828Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-04T07:18:41.119Z info: Remaining questions for user 'abcd': 2 
+2023-04-04T07:18:44.630Z info: User input: 2345tyujhgfdsdfghnm IP: ::ffff:127.0.0.1
+2023-04-04T07:18:44.631Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-04T07:19:16.889Z info: User input: 23456uikjhgfd IP: ::ffff:127.0.0.1
+2023-04-04T07:19:16.890Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-04T07:22:44.816Z info: Remaining questions for user 'abcd': 0 
+2023-04-04T07:22:50.722Z info: User input: 234tyhgf IP: ::ffff:127.0.0.1
+2023-04-04T07:22:50.723Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-04T07:23:15.440Z info: User input: 2345tygtfd IP: ::ffff:127.0.0.1
+2023-04-04T07:23:15.440Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-04T07:24:14.261Z info: Remaining questions for user 'abcd': 3 
+2023-04-04T07:24:17.660Z info: User input: 234red IP: ::ffff:127.0.0.1
+2023-04-04T07:24:17.661Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-04T07:25:34.548Z info: Remaining questions for user 'abcd': 1 
+2023-04-04T07:25:38.462Z info: User input: 234567uikjhg IP: ::ffff:127.0.0.1
+2023-04-04T07:25:38.464Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-04T07:25:52.567Z info: Remaining questions for user 'abcd': 0 
+2023-04-04T07:25:57.528Z info: User input: 23456yhgf IP: ::ffff:127.0.0.1
+2023-04-04T07:25:57.529Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-04T07:26:01.918Z info: Remaining questions for user 'abcd': -1 
+2023-04-04T07:27:00.070Z info: Remaining questions for user 'abcd': -2 
+2023-04-04T07:27:37.607Z info: Remaining questions for user 'abcd': 1 
+2023-04-04T07:27:44.032Z info: User input:  jytg IP: ::ffff:127.0.0.1
+2023-04-04T07:27:44.033Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-04T07:32:38.436Z info: Remaining questions for user 'abcd': 1 
+2023-04-04T07:33:22.610Z info: Remaining questions for user 'abcd': 3 
+2023-04-04T07:33:28.344Z info: User input: eyt hgvf IP: ::ffff:127.0.0.1
+2023-04-04T07:33:28.344Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-04T07:35:14.251Z info: Remaining questions for user 'abcd': 3 
+2023-04-04T07:35:22.764Z info: User input: 23456yukjhgfd IP: ::ffff:127.0.0.1
+2023-04-04T07:35:22.765Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-04T08:24:21.644Z info: Remaining questions for user 'abcd': 2 
+2023-04-04T08:24:25.452Z info: User input: 23456y7ugfd IP: ::ffff:127.0.0.1
+2023-04-04T08:24:25.453Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-04T08:24:30.150Z info: Remaining questions for user 'abcd': 1 
+2023-04-04T08:24:36.273Z info: Remaining questions for user 'abcd': 0 
+2023-04-04T09:07:39.092Z info: Remaining questions for user 'abcd': 0 
+2023-04-04T09:08:28.364Z info: Remaining questions for user 'abcd': 4 
+2023-04-04T09:11:12.896Z info: Remaining questions for user 'abcd': 3 
+2023-04-04T09:11:16.901Z info: User input: 2345杨贵妃的 IP: ::ffff:127.0.0.1
+2023-04-04T09:11:16.901Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-04T09:11:38.850Z info: User input: 微软非官方的 IP: ::ffff:127.0.0.1
+2023-04-04T09:11:38.850Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-04T09:11:42.741Z info: Remaining questions for user 'abcd': 2 
+2023-04-04T09:29:28.856Z info: Remaining questions for user 'abcd': 1 
+2023-04-04T09:29:35.685Z info: User input: 23456765432 IP: ::ffff:127.0.0.1
+2023-04-04T09:29:35.685Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-04T09:29:42.155Z info: Remaining questions for user 'abcd': 0 
+2023-04-04T09:29:51.064Z info: User input: 五4567与i空间和广泛的 IP: ::ffff:127.0.0.1
+2023-04-04T09:29:51.065Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-04T09:29:52.842Z info: Remaining questions for user 'abcd': -1 
+2023-04-04T09:30:01.265Z info: User input: 的发给你 IP: ::ffff:127.0.0.1
+2023-04-04T09:30:01.265Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-04T09:52:50.579Z info: Remaining questions for user 'abcd': -1 
+2023-04-04T09:54:02.309Z info: Remaining questions for user 'abcd': 3 
+2023-04-04T09:54:06.404Z info: User input: 2345678ijhgfdsdfghjm, IP: ::ffff:127.0.0.1
+2023-04-04T09:54:06.405Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-04T09:54:23.021Z info: Remaining questions for user 'abcd': 2 
+2023-04-04T09:54:28.332Z info: User input: wertyhjnbgvfcv  IP: ::ffff:127.0.0.1
+2023-04-04T09:54:28.334Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-04T09:54:37.314Z info: Remaining questions for user 'abcd': 1 
+2023-04-04T09:54:53.320Z info: Remaining questions for user 'abcd': 1 
+2023-04-04T09:54:54.276Z info: Remaining questions for user 'abcd': 1 
+2023-04-04T09:55:22.424Z info: User input: 23456yujknhgf IP: ::ffff:127.0.0.1
+2023-04-04T09:55:22.425Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-04T09:55:24.452Z info: Remaining questions for user 'abcd': 0 
+2023-04-04T09:55:27.462Z info: User input: 3456yujhg IP: ::ffff:127.0.0.1
+2023-04-04T09:55:27.462Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-04T09:55:29.680Z info: Remaining questions for user 'abcd': -1 
+2023-04-04T10:01:06.277Z info: Remaining questions for user 'abcd': 3 
+2023-04-04T10:01:12.536Z info: User input: 2345678ertyuio IP: ::ffff:127.0.0.1
+2023-04-04T10:01:12.537Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-04T10:01:35.276Z info: User input: 45678cvbnm IP: ::ffff:127.0.0.1
+2023-04-04T10:01:35.277Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-04T10:02:05.102Z info: Remaining questions for user 'abcd': 1 
+2023-04-04T10:02:10.558Z info: Remaining questions for user 'abcd': 1 
+2023-04-04T10:02:10.895Z info: Remaining questions for user 'abcd': 1 
+2023-04-04T10:02:11.142Z info: Remaining questions for user 'abcd': 1 
+2023-04-04T10:06:55.900Z info: Remaining questions for user 'abcd': 4 
+2023-04-04T10:07:07.411Z info: User input: ertyuicvbn vbn4567890o  IP: ::ffff:127.0.0.1
+2023-04-04T10:07:07.411Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-04T10:10:58.922Z info: Remaining questions for user 'abcd': 3 
+2023-04-04T10:11:11.022Z info: User input: 45678fghjk IP: ::ffff:127.0.0.1
+2023-04-04T10:11:11.023Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-04T10:11:35.593Z info: Remaining questions for user 'abcd': 2 
+2023-04-04T13:40:30.919Z info: Remaining questions for user 'abcd': 4 
+2023-04-04T13:40:33.715Z info: User input: 345tre IP: ::ffff:127.0.0.1
+2023-04-04T13:40:33.716Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-04T13:40:56.679Z info: User input: sderfgh IP: ::ffff:127.0.0.1
+2023-04-04T13:40:56.680Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-04T13:43:58.770Z info: Remaining questions for user 'abcd': 2 
+2023-04-04T13:46:46.551Z info: Remaining questions for user 'abcd': 2 
+2023-04-04T13:46:56.155Z info: User input: 32456ythg IP: ::ffff:127.0.0.1
+2023-04-04T13:46:56.156Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-04T13:48:58.020Z info: Remaining questions for user 'abcd': 1 
+2023-04-04T13:49:04.685Z info: User input: 2345rtgv IP: ::ffff:127.0.0.1
+2023-04-04T13:49:04.686Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-04T13:51:26.749Z info: User input: 2345t6yhgfd IP: ::ffff:127.0.0.1
+2023-04-04T13:51:26.751Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-04T13:55:51.666Z info: User input: 34rfvcx IP: ::ffff:127.0.0.1
+2023-04-04T13:55:51.666Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-04T13:59:23.976Z info: Remaining questions for user 'abcd': 0 
+2023-04-04T13:59:53.047Z info: User input: wertyukjhvc34567 IP: ::ffff:127.0.0.1
+2023-04-04T13:59:53.048Z info: Model: chatgpt IP: ::ffff:127.0.0.1
+2023-04-04T13:59:59.447Z info: Remaining questions for user 'abcd': -1 

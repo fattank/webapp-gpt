@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ChatGpt web</title>
+<link rel="stylesheet" href="assets/css/login.css">
+</head>
+<body>
+  <div id="login-container">
+    <div id="logo">
+      <h1>ChatGpt</h1>
+    </div>
+    <form id="submit-form" action="/submit-form" method="POST" enctype="application/json" onsubmit="return false;">
+      <input type="text" id="username" name="username" placeholder="用户名">
+      <input type="password" id="password" name="password" placeholder="密码">
+      <button type="submit">登录</button>
+    </form>
+    <div id="info">
+      <p>Chatgpt人工智能，最强大的对话式人工智能交互模型。使用者需遵守法律，并对自己的行为负责。注意安全。
+		</p>
+    </div>
+  </div>
+  <script>
+    document.getElementById("submit-form").addEventListener("submit", function (event) {
+      event.preventDefault();
+  
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+  
+      const xhr = new XMLHttpRequest();
+      xhr.open("POST", "/submit-form", true);
+      xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+  
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+          if (xhr.status === 200) {
+            window.location.href = "/main.html";
+            alert("Ok");
+          } else {
+            alert("用户名或密码错误，请重试。");
+          }
+        }
+      };
+  
+      xhr.onerror = function () {
+        console.error("Error:", xhr.statusText);
+      };
+  
+      xhr.send(JSON.stringify({ username, password }));
+    });
+  </script>
+</body>
+</html>
