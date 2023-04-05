@@ -11,7 +11,7 @@ const responseList = document.getElementById('response-list');
 const fileInput = document.getElementById("whisper-file");
 
 function deductRemainingQuestions() {
-    
+
     const xhr = new XMLHttpRequest();
     xhr.open('POST', '/deduct-remaining-questions', true);
     xhr.setRequestHeader('Content-type', 'application/json');
@@ -57,7 +57,10 @@ promptInput.addEventListener('keydown', function(event) {
         if (event.ctrlKey || event.shiftKey) {
             document.execCommand('insertHTML', false, '<br/><br/>');
         } else {
-            getGPTResult();
+            // getGPTResult();
+            getGPTResult().then(() => {
+                updateRemainingQuestions();
+            });
         }
     }
 });
@@ -242,37 +245,38 @@ document.getElementById('submit-button').addEventListener('click', () => {
 
 submitButton.addEventListener("click", () => {
     getGPTResult().then(() => {
+        updateRemainingQuestions();
     });
  // Perform any necessary form validation here
 
-  // Make an AJAX call to the server to update the user's count
-  fetch('/update-count', {
-    
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    
-    body: JSON.stringify({
-      // Include any necessary data from the form, such as the user's ID
-    })
-  })
-  .then(response => {
-    console.log('number2')
-    if (response.status === 403) {
-      return response.text().then(text => {
-        throw new Error(text);
-      });
-    }
-    return response.json();
-})
-  .then(data => {
-    console.log('number1')
-    deductRemainingQuestions(); // Handle the response from the server, e.g., update the UI or show a success message
-  })
-  .catch(error => {
-    // Handle any errors, e.g., show an error message
-  });
+//   // Make an AJAX call to the server to update the user's count
+//   fetch('/update-count', {
+//
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json'
+//     },
+//
+//     body: JSON.stringify({
+//       // Include any necessary data from the form, such as the user's ID
+//     })
+//   })
+//   .then(response => {
+//     console.log('number2')
+//     if (response.status === 403) {
+//       return response.text().then(text => {
+//         throw new Error(text);
+//       });
+//     }
+//     return response.json();
+// })
+//   .then(data => {
+//     console.log('number1')
+//     deductRemainingQuestions(); // Handle the response from the server, e.g., update the UI or show a success message
+//   })
+//   .catch(error => {
+//     // Handle any errors, e.g., show an error message
+//   });
 });
 regenerateResponseButton.addEventListener("click", () => {
     regenerateGPTResult();
@@ -283,5 +287,3 @@ document.addEventListener("DOMContentLoaded", function(){
 });
 
 
-
- 

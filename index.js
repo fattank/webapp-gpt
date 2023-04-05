@@ -108,9 +108,9 @@ db.serialize(() => {
 });
 
 
-// loging 
+// loging
 app.post('/submit-form', function (req, res) {
-    console.log("Received data:", req.body); // log sea the server back 
+    console.log("Received data:", req.body); // log sea the server back
     const { username, password } = req.body;
     if (req.session.username === username) {// Check if the user is already logged in
       res.status(403).send('This user is already logged in.');
@@ -136,7 +136,7 @@ app.post('/submit-form', function (req, res) {
     });
   });
 
-    // asking 
+    // asking
     app.post('/ask-question', function (req, res) {
       console.log("Received data:", req.body);
       if (!req.session.username || req.session.questionCount <= 0) {
@@ -208,7 +208,7 @@ app.get('/get-question-count', (req, res) => {
       }
     });
   });
-  
+
 
 //count number send back to mainhtml
     app.get('/get-remaining-questions', function (req, res) {
@@ -285,7 +285,27 @@ app.post('/get-prompt-result', async (req, res) => {
     const userIP = req.ip; // Get the user's IP address
   //  logger.info(`User input: ${prompt}`, {ip: userIP});
   //  logger.info(`Model: ${model}`, {ip: userIP});
-    
+
+
+  // -- 1⃣️这里获取调用open api获取回答....（自己补充代码）
+
+  // -- 2⃣️这里更新计数
+    const query = 'UPDATE users SET count = count - 1 WHERE username = ?'; //+1or-1
+    db.run(query, [req.session.username], function (err) {
+      if (err) {
+        console.error('Error updating user count:', err);
+        res.status(500).send({ message: 'Internal server error' });
+        return;
+      }
+
+      // Send a success message or the updated count back to the client
+      // res.status(200).send({ message: 'Count updated successfully' });
+    });
+
+    // 上面两个都成功了返回答案，这里为了测试写死了
+    res.send('回答了！');
+  return;
+
     // Check if prompt is present in the request
     if (!prompt) {
         // Send a 400 status code and a message indicating that the prompt is missing
