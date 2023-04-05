@@ -286,6 +286,22 @@ app.post('/get-prompt-result', async (req, res) => {
   //  logger.info(`User input: ${prompt}`, {ip: userIP});
   //  logger.info(`Model: ${model}`, {ip: userIP});
 
+  // 检测session
+  if(!req.session?.username){
+    res.status(403).send('Not logged in');
+    return;
+  }
+
+  // 检测计数
+  try{
+    let iAvailCount = await detectAccountAvailCount(req.session.username);
+    console.log("剩余计数：",iAvailCount);
+  }
+  catch(err){
+    console.error('Error:', err);
+    res.status(500).send(`${err.message||""}`);
+    return;
+  }
 
   // -- 1⃣️这里获取调用open api获取回答....（自己补充代码）
 
@@ -354,3 +370,23 @@ app.post('/get-prompt-result', async (req, res) => {
 
 const port = process.env.PORT || 3001; //port Number
 app.listen(port, () => console.log(`Listening on port ${port}`));
+
+
+
+function detectAccountAvailCount(sUsername){
+  return new Promise((resolve, reject) => {
+
+    // 检测计数
+    const checkUserQuery = 'SELECT * FROM users WHERE username = ?';
+    let oData = db.get(checkUserQuery, [sUsername], (err, row) => {
+      if (err) {
+        reject(new Error(`detectAccountAvailCount failed:${err.message}`));
+      }
+
+      if((row.count||0) <= 0){
+        reject(new Error('当前无计数额度'));
+      }
+      resolve(row.count);
+    });
+  });
+}
