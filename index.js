@@ -268,128 +268,145 @@ app.post('/transcribe', upload.single('audio'), async (req, res) => {
 });
 
 app.post('/get-prompt-result', async (req, res) => {
-    // Get the prompt from the request body
-    const {prompt, model = 'gpt'} = req.body;
-    const userIP = req.ip; // Get the user's IP address
+  // Get the prompt from the request body
+  const {prompt, model = 'gpt'} = req.body;
+  const userIP = req.ip; // Get the user's IP address
   //  logger.info(`User input: ${prompt}`, {ip: userIP});
   //  logger.info(`Model: ${model}`, {ip: userIP});
 
-  // 检测session
-  if(!req.session?.username){
-    res.status(403).send('Not logged in');
-    return;
-  }
 
-  // 检测计数
+  // 检测session
+  if(!req.session?.username){return res.status(403).send('Not logged in');}
+
+  // 检测prompt
+  if (!prompt) {return res.status(400).send({error: 'Prompt is missing in the request'});}
+
   try{
+    // -- 检测计数
     let iAvailCount = await detectAccountAvailCount(req.session.username);
     console.log("剩余计数：",iAvailCount);
+
+    // -- OpenAI获取数据
+    let responseText = "";
+    if (model === 'image') {
+      const ret_image = await openai.createImage({
+        prompt,
+        response_format: 'url',
+        size: '512x512'
+      });
+      console.log(">>>>Return from Image:",ret_image);
+      responseText = ret_image.data.data[0].url;
+    }
+    else if (model === 'chatgpt') {
+      const ret_chatgpt = await openai.createChatCompletion({
+        model:"gpt-3.5-turbo",
+        top_p:1,
+        temperature:0.9,  //# 值在[0,1]之间，越大表示回复越具有不确定性
+        frequency_penalty:0.0,  //# [-2,2]之间，该值越大则更倾向于产生不同的内容
+        presence_penalty:0.0,  //# [-2,2]之间，该值越大则更倾向于产生不同的内容
+        messages:[
+          {role:"user",content:prompt}
+        ]
+      });
+      console.log(">>>>Return from chatgpt:",ret_chatgpt);
+      responseText = ret_chatgpt.data.choices[0]?.message?.content;
+    }
+    else {
+      const ret_others = await openai.createCompletion({
+        model: model === 'gpt' ? "text-davinci-003" : 'code-davinci-002', // model name
+        prompt: `Please reply below question in markdown format.\n ${prompt}`, // input prompt
+        max_tokens: model === 'gpt' ? 4000 : 8000 // Use max 8000 tokens for codex model
+      });
+      console.log(">>>>Return from others:",ret_others);
+      responseText = JSON.stringify(ret_others.data);// 不知道返回内容格式，你自己解析下
+    }
+
+    // 更新计数
+    await updateCount(req.session.username);
+
+    //
+    res.send(responseText);
   }
   catch(err){
     console.error('Error:', err);
-    res.status(500).send(`${err.message||""}`);
-    return;
+    return res.status(500).send(`${err.message||""}`);
   }
 
+
+
+
+
+
+
+
+
+
   // -- 1⃣️这里获取调用open api获取回答....（自己补充代码）
-  if (!prompt) {
-    // Send a 400 status code and a message indicating that the prompt is missing
-    return res.status(400).send({error: 'Prompt is missing in the request'});
-}
 
-try {
-    // Use the OpenAI SDK to create a completion
-    // with the given prompt, model and maximum tokens
-    if (model === 'image') {
-        const result = await openai.createImage({
-            prompt,
-            response_format: 'url',
-            size: '512x512'
-        });
-    return res.send(result.data.data[0].url);
-    }
-    else if (model === 'chatgpt') {
-        const result = await openai.createChatCompletion({
-            model:"gpt-3.5-turbo",
-            messages: [
-
-              temperature=0.9,  # 值在[0,1]之间，越大表示回复越具有不确定性
-                top_p=1,
-                frequency_penalty=0.0,  # [-2,2]之间，该值越大则更倾向于产生不同的内容
-                presence_penalty=0.0,  # [-2,2]之间，该值越大则更倾向于产生不同的内容
-                { role: "user", content: prompt }
-            ]
-        })
-        responseText = result.data.choices[0]?.message?.content;
-    }else {
-        const completion = await openai.createCompletion({
-            model: model === 'gpt' ? "text-davinci-003" : 'code-davinci-002', // model name
-            prompt: `Please reply below question in markdown format.\n ${prompt}`, // input prompt
-            max_tokens: model === 'gpt' ? 4000 : 8000 // Use max 8000 tokens for codex model
-    });
-
-
-
-  // -- 2⃣️这里更新计数
-    const query = 'UPDATE users SET count = count - 1 WHERE username = ?'; //+1or-1
-    db.run(query, [req.session.username], function (err) {
-      if (err) {
-        console.error('Error updating user count:', err);
-        res.status(500).send({ message: 'Internal server error' });
-        return;
-      }
-
-      // Send a success message or the updated count back to the client
-      // res.status(200).send({ message: 'Count updated successfully' });
-    });
-
-    // 上面两个都成功了返回答案，这里为了测试写死了
-    //res.send('回答了！');
-  //return;
-
-/*      // Check if prompt is present in the request
-    // if (!prompt) {
-        // Send a 400 status code and a message indicating that the prompt is missing
-        // return res.status(400).send({error: 'Prompt is missing in the request'});
-    // }
-
-    // try {
-        // Use the OpenAI SDK to create a completion
-        // with the given prompt, model and maximum tokens
-        // if (model === 'image') {
-            // const result = await openai.createImage({
-                // prompt,
-                // response_format: 'url',
-                // size: '512x512'
-            // });
-        // return res.send(result.data.data[0].url);
-        // }
-        // else if (model === 'chatgpt') {
-            const result = await openai.createChatCompletion({
-                model:"gpt-3.5-turbo",
-                messages: [
-                    { role: "user", content: prompt }
-                ]
-            })
-            responseText = result.data.choices[0]?.message?.content;
-        }else {
-            const completion = await openai.createCompletion({
-                model: model === 'gpt' ? "text-davinci-003" : 'code-davinci-002', // model name
-                prompt: `Please reply below question in markdown format.\n ${prompt}`, // input prompt
-                max_tokens: model === 'gpt' ? 4000 : 8000 // Use max 8000 tokens for codex model
-        });*/
-        // Send the generated text as the response
-            responseText = completion.data.choices[0].text;
-    }
-    logger.info(`System response: ${responseText}`);
-        return res.send(responseText);
-
-    } catch (error) {
-        const errorMsg = error.response ? error.response.data.error : `${error}`;
-        console.error(errorMsg);
-        // Send a 500 status code and the error message as the response
-        return res.status(500).send(errorMsg);
-    }
+// try {
+//
+//
+//
+//   // -- 2⃣️这里更新计数
+//   //   const query = 'UPDATE users SET count = count - 1 WHERE username = ?'; //+1or-1
+//   //   db.run(query, [req.session.username], function (err) {
+//   //     if (err) {
+//   //       console.error('Error updating user count:', err);
+//   //       res.status(500).send({ message: 'Internal server error' });
+//   //       return;
+//   //     }
+//   //
+//   //     // Send a success message or the updated count back to the client
+//   //     // res.status(200).send({ message: 'Count updated successfully' });
+//   //   });
+//
+//     // 上面两个都成功了返回答案，这里为了测试写死了
+//     //res.send('回答了！');
+//   //return;
+//
+// /*      // Check if prompt is present in the request
+//     // if (!prompt) {
+//         // Send a 400 status code and a message indicating that the prompt is missing
+//         // return res.status(400).send({error: 'Prompt is missing in the request'});
+//     // }
+//
+//     // try {
+//         // Use the OpenAI SDK to create a completion
+//         // with the given prompt, model and maximum tokens
+//         // if (model === 'image') {
+//             // const result = await openai.createImage({
+//                 // prompt,
+//                 // response_format: 'url',
+//                 // size: '512x512'
+//             // });
+//         // return res.send(result.data.data[0].url);
+//         // }
+//         // else if (model === 'chatgpt') {
+//             const result = await openai.createChatCompletion({
+//                 model:"gpt-3.5-turbo",
+//                 messages: [
+//                     { role: "user", content: prompt }
+//                 ]
+//             })
+//             responseText = result.data.choices[0]?.message?.content;
+//         }else {
+//             const completion = await openai.createCompletion({
+//                 model: model === 'gpt' ? "text-davinci-003" : 'code-davinci-002', // model name
+//                 prompt: `Please reply below question in markdown format.\n ${prompt}`, // input prompt
+//                 max_tokens: model === 'gpt' ? 4000 : 8000 // Use max 8000 tokens for codex model
+//         });*/
+//         // Send the generated text as the response
+//     //         responseText = completion.data.choices[0].text;
+//     // }
+//     logger.info(`System response: ${responseText}`);
+//         return res.send(responseText);
+//
+//     } catch (error) {
+//         const errorMsg = error.response ? error.response.data.error : `${error}`;
+//         console.error(errorMsg);
+//         // Send a 500 status code and the error message as the response
+//         return res.status(500).send(errorMsg);
+//     }
 });
 
 
@@ -414,4 +431,17 @@ function detectAccountAvailCount(sUsername){
       resolve(row.count);
     });
   });
+}
+
+function updateCount(sUsername){
+  return new Promise((resolve, reject) => {
+
+    const query = 'UPDATE users SET count = count - 1 WHERE username = ?'; //+1or-1
+    db.run(query, [sUsername], function (err) {
+      if (err) {
+        reject(new Error(`updateCount failed:${err.message}`));
+      }
+      resolve();
+    });
+  })
 }
