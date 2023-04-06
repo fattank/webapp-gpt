@@ -59,6 +59,23 @@ const logger = winston.createLogger({
     ]
   });
 
+// 记录用户提交的数据-我的改的位置
+const userData = { username: 'johndoe'};
+logger.info('User submitted data:', userData);
+
+// 发出HTTP请求并记录服务器返回的数据
+fetch('/api/some-endpoint')
+  .then(response => response.json())
+  .then(data => logger.info('Received data from server:', data));
+
+
+
+
+
+
+
+
+
 //read apikey
 const configuration = new Configuration({
     apiKey: process.env.OPENAI_API_KEY,
@@ -411,7 +428,7 @@ app.post('/get-prompt-result', async (req, res) => {
 });
 
 
-const port = process.env.PORT || 80; //port Number
+const port = process.env.PORT || 3001; //port Number
 app.listen(port, () => console.log(`Listening on port ${port}`));
 
 
